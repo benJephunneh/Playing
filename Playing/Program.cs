@@ -1,38 +1,51 @@
 ﻿using System;
+using System.Text;
 
 namespace Playing
 {
     class Program
     {
-        static int choice;
+        private static int choice;
+        private static QuadRoots quadEqn;
+        private static string phrase;
 
         static void Main(string[] args)
         {
             do
             {
                 Console.Clear();
-                Console.WriteLine("Would you like to reverse a string [1] or calculate roots of a quadratic eq'n [2]? [1 / 2] ");
+                Console.Write("Would you like to reverse a string [1] or calculate roots of a quadratic eq'n [2]? [1 / 2] ");
                 int.TryParse(Console.ReadLine(), out choice);
                 switch (choice)
                 {
                     case 1:
                         ReverseIt();
-                        break;
+                        goto Cont;
                     case 2:
-                        QuadRoots quadEqn = new QuadRoots();
+                        quadEqn = new QuadRoots();
                         quadEqn.CalculateRoots();
-                        break;
+                        goto Cont;
                     default:
-                        Console.WriteLine("Invalid choice.");
-                        break;
+                        Console.WriteLine("Exiting.");
+                        goto Finish;
                 }
+            Finish:
+                break;
+            Cont:
+                continue;
             } while (true);
         }
 
         private static void ReverseIt()
         {
-            Console.WriteLine("Enter a string you'd like to reverse:\n\t");
-            Console.ReadLine();
+            string esarhp;
+            Console.Write("Enter a string you'd like to reverse:\n\t");
+            phrase = Console.ReadLine();
+
+            foreach (char letter in phrase)
+            {
+                esarhp = esarhp.Insert(0, letter.ToString());
+            }
         }
 
     }
