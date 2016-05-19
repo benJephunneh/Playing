@@ -38,14 +38,20 @@ namespace Playing
 
         private static void ReverseIt()
         {
-            string esarhp;
             Console.Write("Enter a string you'd like to reverse:\n\t");
-            phrase = Console.ReadLine();
+            string phrase = Console.ReadLine();
+            phrase.ToCharArray();
+            char[] temp = new char[phrase.Length];
 
-            foreach (char letter in phrase)
+            for (int i = phrase.Length; i > 0; i--) // D'oh!  Could have used Array.Reverse(temp)
             {
-                esarhp = esarhp.Insert(0, letter.ToString());
+                temp[Math.Abs(i - phrase.Length)] = phrase[i - 1];
             }
+            string esarhp = new string(temp);
+
+            Console.WriteLine($"Original:\t{phrase}");
+            Console.WriteLine($"Modified:\t{esarhp}");
+            Console.ReadLine();
         }
 
     }
