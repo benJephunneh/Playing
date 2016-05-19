@@ -19,7 +19,8 @@ namespace Playing
                 switch (choice)
                 {
                     case 1:
-                        ReverseIt();
+                        ReverseIt reversal = new ReverseIt();
+                        reversal.DoIt();
                         goto Cont;
                     case 2:
                         quadEqn = new QuadRoots();
@@ -36,23 +37,23 @@ namespace Playing
             } while (true);
         }
 
-        private static void ReverseIt()
-        {
-            Console.Write("Enter a string you'd like to reverse:\n\t");
-            string phrase = Console.ReadLine();
-            phrase.ToCharArray();
-            char[] temp = new char[phrase.Length];
+        //private static void ReverseIt()
+        //{
+        //    Console.Write("Enter a string you'd like to reverse:\n\t");
+        //    string phrase = Console.ReadLine();
+        //    phrase.ToCharArray();
+        //    char[] temp = new char[phrase.Length];
 
-            for (int i = phrase.Length; i > 0; i--) // D'oh!  Could have used Array.Reverse(temp)
-            {
-                temp[Math.Abs(i - phrase.Length)] = phrase[i - 1];
-            }
-            string esarhp = new string(temp);
+        //    for (int i = phrase.Length; i > 0; i--) // D'oh!  Could have used Array.Reverse(temp)
+        //    {
+        //        temp[Math.Abs(i - phrase.Length)] = phrase[i - 1];
+        //    }
+        //    string esarhp = new string(temp);
 
-            Console.WriteLine($"Original:\t{phrase}");
-            Console.WriteLine($"Modified:\t{esarhp}");
-            Console.ReadLine();
-        }
+        //    Console.WriteLine($"Original:\t{phrase}");
+        //    Console.WriteLine($"Modified:\t{esarhp}");
+        //    Console.ReadLine();
+        //}
 
     }
 }
